@@ -1,0 +1,242 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="A tool for auto evaluating programming challenges in C/C++/Java/Python/Ruby and many more" />
+
+    <title>CodeEval </title>
+
+        
+    <link href="/site_media/css/ui.core.css" rel="stylesheet" type="text/css" />
+    <link href="/site_media/css/ui.datepicker.css" rel="stylesheet" type="text/css" />
+
+    <link href="/site_media/css/reset_inside.css" rel="stylesheet" type="text/css" />
+    <link href="/site_media/css/scratch_inside.css" rel="stylesheet" type="text/css" />
+    
+     <!--[if IE]>
+     <style type="text/css">
+        #ce-menu li.active a { box-shadow:0 -3px 5px #222; -moz-box-shadow: 0 -2px 2px #111; -webkit-box-shadow:0 -3px 3px #222; z-index:10;}
+      </style>
+       <![endif]-->
+        <!--[if !IE]>-->         <style type="text/css">
+         #ce-menu li.active a { box-shadow:0 -3px 5px #222; -moz-box-shadow: 0 -2px 2px #111; -webkit-box-shadow:0 -3px 3px #222; z-index:10; border-bottom:1px  solid #98958D;}
+         </style>
+        <!--<![endif]-->
+
+
+    
+    
+        
+    <script type="text/javascript" src="/site_media/js/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
+    <script type="text/javascript" src="/site_media/js/ui.core.js"></script>
+    <script type="text/javascript" src="/site_media/js/ui.datepicker.js"></script>
+
+    
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        try {
+        var pageTracker = _gat._getTracker("UA-6414083-5");
+        pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+    
+    <script type='text/javascript'> var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('18ccfd0341807e2ba267a61a5ce186a1'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; } 
+    
+    $(document).ready(function() {
+     mpmetrics.track("Page view", { 'page': document.location });
+     });
+    </script>
+    
+
+    
+    
+    
+    
+</head>
+<body>
+    <div id="container">
+        <div id="ce-header">
+            <h1 id="logo"><a title="Back to Dashboard" href="/"><img src="/site_media/images/logo.png" alt="CodeEval" width="130"/></a></h1>
+            <div id="user-info">
+                <p>Hello! <a title="Edit your Profile" href="/open_challenge_profile/">Kristján</a> | <a title="Log out" href="/accounts/logout">Log Out</a></p>
+            </div>
+            <div id="ce-menu">
+                <ul id="main-nav">
+                    <li id="nav-db" class="first "><a href="/dashboard/">Dashboard</a></li>
+                    <li id="nav-ss" class=""><a href="/open_challenge_scores/">Scores</a></li>
+                    <li id="nav-as" class="active"><a href="/open_challenges/">Open Challenges</a></li>
+                    <li id="nav-lb" class=""><a href="/leaderboard/">Leaderboard</a></li>
+                    <li id="nav-pp" class=""><a href="/invite_oc/">Invite</a></li>
+                </ul>
+
+                <form id="search-form" action="/dashboard/switch_profile/" method="post">
+                    <div>
+                       <div class="input-dd-wrap">                            
+                            <select name="roleid" id="sel-course" class="button" onchange="this.form.submit();">
+                                
+                                   
+                                        <option value="7" selected="selected">User Role</option>
+                                   
+                                
+                              </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- End Header -->
+       
+        
+        
+        <div id="sub">
+                <ul id="sub-nav">
+                    <li class="active">Browse Open Challenges</li>
+                </ul>
+        </div>
+        
+        
+		<div id="ce-content">
+            
+            <!-- LIST CHALLENGES STARTS -->
+            
+            <h2>List of challenges</h2>
+            
+            <ul class="open-challenges-status">
+                <li class="passed"><b>124</b> Passed</li>
+                <li class="failed"><b>139</b> Failed</li>                
+            </ul>            
+            
+            <div class="challenge-common challenge-detail">
+            	
+            	<div class="leftcol">
+	            	<h3 class="select">Select category:</h3>
+	            	<ul class="categories">
+                        
+                            
+                               <li><a href="/open_challenges/?cid=1">Easy (18) </a></li>
+                            
+                        
+                            
+                               <li><a href="/open_challenges/?cid=2">Moderate (20) </a></li>
+                            
+                        
+                            
+                                <li class="selected"><a href="#">Hard (12)</a></li>
+                            
+                        
+	            	</ul>
+            	</div>
+            	
+            	<div class="rightcol">
+            		<div class="cl-detail">
+                    
+                        
+            
+            			<div class="backtolist">
+            				<a href="/open_challenges/?cid=3">&laquo; Back to list</a>
+            			</div>
+            			
+            				<div class="submitsolution">
+        						<a class="choosebutton" href="/open_challenges/36/submit/">Submit Solution</a>
+            				</div>
+            				<div class="maincontent">
+                                <h3>Message Decoding</h3>
+                                <h4>Description:</h4>
+                                <p>Credits: This challenge has appeared in a past ACM competition.<br /><br />Some message encoding schemes require that an encoded message be sent in two parts. The first part, called the header, contains the characters of the message. The second part contains a pattern that represents the message.You must write a program that can decode messages under such a scheme.<br /><br />The heart of the encoding scheme for your program is a sequence of &quot;key&quot; strings of 0&#39;s and 1&#39;s as follows:<br />0,00,01,10,000,001,010,011,100,101,110,0000,0001,. . .,1011,1110,00000, . . .<br /><br />The first key in the sequence is of length 1, the next 3 are of length 2, the next 7 of length 3, the next 15 of length 4, etc. If two adjacent keys have the same length, the second can be obtained from the first by adding 1 (base 2). Notice that there are no keys in the sequence that consist only of 1&#39;s.<br /><br />The keys are mapped to the characters in the header in order. That is, the first key (0) is mapped to the first character in the header, the second key (00) to the second character in the header, the kth key is mapped to the kth character in the header. For example, suppose the header is:<br /><br />AB#TANCnrtXc<br />Then 0 is mapped to A, 00 to B, 01 to #, 10 to T, 000 to A, ..., 110 to X, and 0000 to c.<br /><br />The encoded message contains only 0&#39;s and 1&#39;s and possibly carriage returns, which are to be ignored. The message is divided into segments. The first 3 digits of a segment give the binary representation of the length of the keys in the segment. For example, if the first 3 digits are 010, then the remainder of the segment consists of keys of length 2 (00, 01, or 10). The end of the segment is a string of 1&#39;s which is the same length as the length of the keys in the segment. So a segment of keys of length 2 is terminated by 11. The entire encoded message is terminated by 000 (which would signify a segment in which the keys have length 0). The message is decoded by translating the keys in the segments one-at-a-time into the header characters to which they have been mapped.
+                                </p>
+                                <h4>Input sample:</h4>
+                                <p>The input file contains several data sets. Each data set consists of a header and a message. These will all be on one line. The length of the header is limited only by the fact that key strings have a maximum length of 7 (111 in binary). If there are multiple copies of a character in a header, then several keys will map to that character. The encoded message contains only 0&#39;s and 1&#39;s, and it is a legitimate encoding according to the described scheme. That is, the message segments begin with the 3-digit length sequence and end with the appropriate sequence of 1&#39;s. The keys in any given segment are all of the same length, and they all correspond to characters in the header. The message is terminated by 000.<br />Your program should accept the first argument as the filename and read the contents of this file as the test data, according to the conditions above.eg.<br /><pre>$#**\0100000101101100011100101000</pre></p>
+                                <h4>Output sample:</h4>
+                                <p>For each data set, your program must write its decoded message on a separate line. There should not be blank lines between messages.eg.<br /><pre>##*\$</pre></p>
+                                <p>Submit your solution in a file <b>(some file name).(py| c| cpp| rb| pl| php| tcl| clj| js) | message_decoding.java </b> or use the online editor.</p>
+
+                                
+                                <h4>Sponsored Challenge Eligibility</h4>
+                                <p>In order to be eligible to push solution to the employer (TopProspect), you must satisfy the following conditions:
+                                        <ul>
+                                            
+                                            <li>Location: United States</li>
+                                            
+                                            
+                                            
+                                                <li>Minimum Education: High School</li>
+                                            
+                                            
+                                            
+                                            
+                                            <li>Your email / resume will always be sent to the employer</li>
+
+                                        </ul>
+                                </p>
+                                
+
+							</div><!-- /.maincontent -->
+							
+            		</div><!-- /.cl-detail -->
+            		
+            	</div><!-- /.rightcol -->
+			
+			</div><!-- /.chanllenge-common -->
+            			
+			<!-- LIST CHALLENGES ENDS -->
+			
+		</div> <!-- End Content -->
+
+
+        
+         <div id="footer">
+            <ul id="siteinfo">
+                <li>&copy; Copyright 2011 CodeEval&trade; Inc.</li>    
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/terms/">Terms</a></li>
+                <li><a href="/privacy/">Privacy Policy</a></li>    
+                <li><a href="http://getsatisfaction.com/codeeval" target="_blank">Support/Feedback</a></li>
+                <li><a href="http://blog.codeeval.com/" target="_blank">Blog</a></li>
+                <li><a href="http://twitter.com/codeeval" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+        <div id="grid"></div>
+    
+        
+    </div> <!-- End Container -->
+        
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";  
+  feedback_widget_options.company = "codeeval";
+  feedback_widget_options.placement = "left";
+  feedback_widget_options.color = "#222";
+  feedback_widget_options.style = "question";
+  
+  
+  
+  
+  
+  
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+
+</body>
+</html>
+
+
+

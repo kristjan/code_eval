@@ -1,0 +1,224 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="A tool for auto evaluating programming challenges in C/C++/Java/Python/Ruby and many more" />
+
+    <title>CodeEval </title>
+
+        
+    <link href="/site_media/css/ui.core.css" rel="stylesheet" type="text/css" />
+    <link href="/site_media/css/ui.datepicker.css" rel="stylesheet" type="text/css" />
+
+    <link href="/site_media/css/reset_inside.css" rel="stylesheet" type="text/css" />
+    <link href="/site_media/css/scratch_inside.css" rel="stylesheet" type="text/css" />
+    
+     <!--[if IE]>
+     <style type="text/css">
+        #ce-menu li.active a { box-shadow:0 -3px 5px #222; -moz-box-shadow: 0 -2px 2px #111; -webkit-box-shadow:0 -3px 3px #222; z-index:10;}
+      </style>
+       <![endif]-->
+        <!--[if !IE]>-->         <style type="text/css">
+         #ce-menu li.active a { box-shadow:0 -3px 5px #222; -moz-box-shadow: 0 -2px 2px #111; -webkit-box-shadow:0 -3px 3px #222; z-index:10; border-bottom:1px  solid #98958D;}
+         </style>
+        <!--<![endif]-->
+
+
+    
+    
+        
+    <script type="text/javascript" src="/site_media/js/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
+    <script type="text/javascript" src="/site_media/js/ui.core.js"></script>
+    <script type="text/javascript" src="/site_media/js/ui.datepicker.js"></script>
+
+    
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        try {
+        var pageTracker = _gat._getTracker("UA-6414083-5");
+        pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+    
+    <script type='text/javascript'> var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('18ccfd0341807e2ba267a61a5ce186a1'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; } 
+    
+    $(document).ready(function() {
+     mpmetrics.track("Page view", { 'page': document.location });
+     });
+    </script>
+    
+
+    
+    
+    
+    
+</head>
+<body>
+    <div id="container">
+        <div id="ce-header">
+            <h1 id="logo"><a title="Back to Dashboard" href="/"><img src="/site_media/images/logo.png" alt="CodeEval" width="130"/></a></h1>
+            <div id="user-info">
+                <p>Hello! <a title="Edit your Profile" href="/open_challenge_profile/">Kristján</a> | <a title="Log out" href="/accounts/logout">Log Out</a></p>
+            </div>
+            <div id="ce-menu">
+                <ul id="main-nav">
+                    <li id="nav-db" class="first "><a href="/dashboard/">Dashboard</a></li>
+                    <li id="nav-ss" class=""><a href="/open_challenge_scores/">Scores</a></li>
+                    <li id="nav-as" class="active"><a href="/open_challenges/">Open Challenges</a></li>
+                    <li id="nav-lb" class=""><a href="/leaderboard/">Leaderboard</a></li>
+                    <li id="nav-pp" class=""><a href="/invite_oc/">Invite</a></li>
+                </ul>
+
+                <form id="search-form" action="/dashboard/switch_profile/" method="post">
+                    <div>
+                       <div class="input-dd-wrap">                            
+                            <select name="roleid" id="sel-course" class="button" onchange="this.form.submit();">
+                                
+                                   
+                                        <option value="7" selected="selected">User Role</option>
+                                   
+                                
+                              </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- End Header -->
+       
+        
+        
+        <div id="sub">
+                <ul id="sub-nav">
+                    <li class="active">Browse Open Challenges</li>
+                </ul>
+        </div>
+        
+        
+		<div id="ce-content">
+            
+            <!-- LIST CHALLENGES STARTS -->
+            
+            <h2>List of challenges</h2>
+            
+            <ul class="open-challenges-status">
+                <li class="passed"><b>164</b> Passed</li>
+                <li class="failed"><b>31</b> Failed</li>                
+            </ul>            
+            
+            <div class="challenge-common challenge-detail">
+            	
+            	<div class="leftcol">
+	            	<h3 class="select">Select category:</h3>
+	            	<ul class="categories">
+                        
+                            
+                               <li><a href="/open_challenges/?cid=1">Easy (18) </a></li>
+                            
+                        
+                            
+                                <li class="selected"><a href="#">Moderate (20)</a></li>
+                            
+                        
+                            
+                               <li><a href="/open_challenges/?cid=3">Hard (12) </a></li>
+                            
+                        
+	            	</ul>
+            	</div>
+            	
+            	<div class="rightcol">
+            		<div class="cl-detail">
+                    
+                        
+            
+            			<div class="backtolist">
+            				<a href="/open_challenges/?cid=2">&laquo; Back to list</a>
+            			</div>
+            			
+            				<div class="submitsolution">
+        						<a class="choosebutton" href="/open_challenges/43/submit/">Submit Solution</a>
+            				</div>
+            				<div class="maincontent">
+                                <h3>Jolly Jumpers</h3>
+                                <h4>Description:</h4>
+                                <p>Credits: Programming Challenges by Steven S. Skiena and Miguel A. Revilla<br /><br />A sequence of n &gt; 0 integers is called a jolly jumper if the absolute values of the differences between successive elements take on all possible values 1 through n - 1. eg. <pre>1 4 2 3</pre>is a jolly jumper, because the absolute differences are 3, 2, and 1, respectively. The definition implies that any sequence of a single integer is a jolly jumper. Write a program to determine whether each of a number of sequences is a jolly jumper.
+                                </p>
+                                <h4>Input sample:</h4>
+                                <p>Your program should accept as its first argument a path to a filename. Each line in this file is one test case. Each test case will contain an integer n &lt; 3000 followed by n integers representing the sequence. The integers are space delimited.</p>
+                                <h4>Output sample:</h4>
+                                <p>For each line of input generate a line of output saying &#39;Jolly&#39; or &#39;Not jolly&#39;.</p>
+                                <p>Submit your solution in a file <b>(some file name).(py| c| cpp| rb| pl| php| tcl| clj| js) | jolly_jumpers.java </b> or use the online editor.</p>
+
+                                
+
+							</div><!-- /.maincontent -->
+							
+            		</div><!-- /.cl-detail -->
+            		
+            	</div><!-- /.rightcol -->
+			
+			</div><!-- /.chanllenge-common -->
+            			
+			<!-- LIST CHALLENGES ENDS -->
+			
+		</div> <!-- End Content -->
+
+
+        
+         <div id="footer">
+            <ul id="siteinfo">
+                <li>&copy; Copyright 2011 CodeEval&trade; Inc.</li>    
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/terms/">Terms</a></li>
+                <li><a href="/privacy/">Privacy Policy</a></li>    
+                <li><a href="http://getsatisfaction.com/codeeval" target="_blank">Support/Feedback</a></li>
+                <li><a href="http://blog.codeeval.com/" target="_blank">Blog</a></li>
+                <li><a href="http://twitter.com/codeeval" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+        <div id="grid"></div>
+    
+        
+    </div> <!-- End Container -->
+        
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";  
+  feedback_widget_options.company = "codeeval";
+  feedback_widget_options.placement = "left";
+  feedback_widget_options.color = "#222";
+  feedback_widget_options.style = "question";
+  
+  
+  
+  
+  
+  
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+
+</body>
+</html>
+
+
+

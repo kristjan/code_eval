@@ -1,0 +1,224 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="A tool for auto evaluating programming challenges in C/C++/Java/Python/Ruby and many more" />
+
+    <title>CodeEval </title>
+
+        
+    <link href="/site_media/css/ui.core.css" rel="stylesheet" type="text/css" />
+    <link href="/site_media/css/ui.datepicker.css" rel="stylesheet" type="text/css" />
+
+    <link href="/site_media/css/reset_inside.css" rel="stylesheet" type="text/css" />
+    <link href="/site_media/css/scratch_inside.css" rel="stylesheet" type="text/css" />
+    
+     <!--[if IE]>
+     <style type="text/css">
+        #ce-menu li.active a { box-shadow:0 -3px 5px #222; -moz-box-shadow: 0 -2px 2px #111; -webkit-box-shadow:0 -3px 3px #222; z-index:10;}
+      </style>
+       <![endif]-->
+        <!--[if !IE]>-->         <style type="text/css">
+         #ce-menu li.active a { box-shadow:0 -3px 5px #222; -moz-box-shadow: 0 -2px 2px #111; -webkit-box-shadow:0 -3px 3px #222; z-index:10; border-bottom:1px  solid #98958D;}
+         </style>
+        <!--<![endif]-->
+
+
+    
+    
+        
+    <script type="text/javascript" src="/site_media/js/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="/site_media/js/common.js"></script>
+    <script type="text/javascript" src="/site_media/js/ui.core.js"></script>
+    <script type="text/javascript" src="/site_media/js/ui.datepicker.js"></script>
+
+    
+    <!-- google analytics -->
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        try {
+        var pageTracker = _gat._getTracker("UA-6414083-5");
+        pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+    
+    <script type='text/javascript'> var mp_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://'); document.write(unescape('%3Cscript src="' + mp_protocol + 'api.mixpanel.com/site_media/js/api/mixpanel.js" type="text/javascript"%3E%3C/script%3E')); </script> <script type='text/javascript'> try {  var mpmetrics = new MixpanelLib('18ccfd0341807e2ba267a61a5ce186a1'); } catch(err) { null_fn = function () {}; var mpmetrics = {  track: null_fn,  track_funnel: null_fn,  register: null_fn,  register_once: null_fn, register_funnel: null_fn }; } 
+    
+    $(document).ready(function() {
+     mpmetrics.track("Page view", { 'page': document.location });
+     });
+    </script>
+    
+
+    
+    
+    
+    
+</head>
+<body>
+    <div id="container">
+        <div id="ce-header">
+            <h1 id="logo"><a title="Back to Dashboard" href="/"><img src="/site_media/images/logo.png" alt="CodeEval" width="130"/></a></h1>
+            <div id="user-info">
+                <p>Hello! <a title="Edit your Profile" href="/open_challenge_profile/">Kristján</a> | <a title="Log out" href="/accounts/logout">Log Out</a></p>
+            </div>
+            <div id="ce-menu">
+                <ul id="main-nav">
+                    <li id="nav-db" class="first "><a href="/dashboard/">Dashboard</a></li>
+                    <li id="nav-ss" class=""><a href="/open_challenge_scores/">Scores</a></li>
+                    <li id="nav-as" class="active"><a href="/open_challenges/">Open Challenges</a></li>
+                    <li id="nav-lb" class=""><a href="/leaderboard/">Leaderboard</a></li>
+                    <li id="nav-pp" class=""><a href="/invite_oc/">Invite</a></li>
+                </ul>
+
+                <form id="search-form" action="/dashboard/switch_profile/" method="post">
+                    <div>
+                       <div class="input-dd-wrap">                            
+                            <select name="roleid" id="sel-course" class="button" onchange="this.form.submit();">
+                                
+                                   
+                                        <option value="7" selected="selected">User Role</option>
+                                   
+                                
+                              </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- End Header -->
+       
+        
+        
+        <div id="sub">
+                <ul id="sub-nav">
+                    <li class="active">Browse Open Challenges</li>
+                </ul>
+        </div>
+        
+        
+		<div id="ce-content">
+            
+            <!-- LIST CHALLENGES STARTS -->
+            
+            <h2>List of challenges</h2>
+            
+            <ul class="open-challenges-status">
+                <li class="passed"><b>10</b> Passed</li>
+                <li class="failed"><b>31</b> Failed</li>                
+            </ul>            
+            
+            <div class="challenge-common challenge-detail">
+            	
+            	<div class="leftcol">
+	            	<h3 class="select">Select category:</h3>
+	            	<ul class="categories">
+                        
+                            
+                               <li><a href="/open_challenges/?cid=1">Easy (18) </a></li>
+                            
+                        
+                            
+                               <li><a href="/open_challenges/?cid=2">Moderate (20) </a></li>
+                            
+                        
+                            
+                                <li class="selected"><a href="#">Hard (12)</a></li>
+                            
+                        
+	            	</ul>
+            	</div>
+            	
+            	<div class="rightcol">
+            		<div class="cl-detail">
+                    
+                        
+            
+            			<div class="backtolist">
+            				<a href="/open_challenges/?cid=3">&laquo; Back to list</a>
+            			</div>
+            			
+            				<div class="submitsolution">
+        						<a class="choosebutton" href="/open_challenges/49/submit/">Submit Solution</a>
+            				</div>
+            				<div class="maincontent">
+                                <h3>Peak Traffic</h3>
+                                <h4>Description:</h4>
+                                <p>Credits: This challenge is from the facebook engineering puzzles<br /><br />Facebook is looking for ways to help users find out which friends they interact with the most on the site. Towards that end, you have collected data from your friends regarding who they interacted with on the site. Each piece of data represents a desirable but one-way interaction between one user of Facebook towards another user of Facebook. By finding groups of users who regularly interact with one another, you hope to help users determine who among their friends they spend the most time with online.<br /><br />Being a popular user, you have collected a lot of data; so much that you cannot possibly process it by hand. But being a programmer of no small repute, you believe you can write a program to do the analysis for you. You are interested in finding clusters of users within your data pool; in other words, groups of users who interact among one another. A cluster is defined as a set of at least three users, where every possible permutation of two users within the cluster have both received and sent some kind of interaction between the two.<br /><br />With your program, you wish to analyze the collected data and find out all clusters within.
+                                </p>
+                                <h4>Input sample:</h4>
+                                <p>Your program should accept as its first argument a path to a filename. The input file consists of multiple lines of aggregated log data. Each line starts with a date entry, whose constituent parts are separated by single white spaces. The exact format of the date always follows the examples given below. Following the date is a single tab, and then the email address of the user who is performing the action. Following that email is another single tab and then finally the email of the Facebook user who receives the action. The last line of the file may or may not have a newline at its end.<br /><br /><pre>Thu Dec 11 17:53:01 PST 2008    a@facebook.com    b@facebook.com<br />Thu Dec 11 17:53:02 PST 2008    b@facebook.com    a@facebook.com<br />Thu Dec 11 17:53:03 PST 2008    a@facebook.com    c@facebook.com<br />Thu Dec 11 17:53:04 PST 2008    c@facebook.com    a@facebook.com<br />Thu Dec 11 17:53:05 PST 2008    b@facebook.com    c@facebook.com<br />Thu Dec 11 17:53:06 PST 2008    c@facebook.com    b@facebook.com<br />Thu Dec 11 17:53:07 PST 2008    d@facebook.com    e@facebook.com<br />Thu Dec 11 17:53:08 PST 2008    e@facebook.com    d@facebook.com<br />Thu Dec 11 17:53:09 PST 2008    d@facebook.com    f@facebook.com<br />Thu Dec 11 17:53:10 PST 2008    f@facebook.com    d@facebook.com<br />Thu Dec 11 17:53:11 PST 2008    e@facebook.com    f@facebook.com<br />Thu Dec 11 17:53:12 PST 2008    f@facebook.com    e@facebook.com</pre>Every line in the input file will follow this format, you are guaranteed that your submission will run against well formed input files.</p>
+                                <h4>Output sample:</h4>
+                                <p>You must output all clusters detected from the input log file with size of at least 3 members. A cluster is defined as N &gt;= 3 users on Facebook that have send and received actions between all possible permutations of any two members within the cluster.<br /><br />Your program should print to standard out, exactly one cluster per line. Each cluster must have its member user emails in alphabetical order, separated by a comma and a single space character each. There must not be a comma (or white space) after the final email in the cluster; instead print a single new line character at the end of every line. The clusters themselves must be printed to standard out also in alphabetical order; treat each cluster as a whole string for purposes of alphabetical comparisons. Do not sort the clusters by size or any other criteria.<br /><br /><pre>a@facebook.com, b@facebook.com, c@facebook.com<br />d@facebook.com, e@facebook.com, f@facebook.com</pre>Finally, any cluster that is a sub-cluster (in other words, all users within one cluster are also present in another) must be removed from the output. For this case, your program should only print the largest super-cluster that includes the other clusters. Your program must be fast, efficient, and able to handle extremely large input files.</p>
+                                <p>Submit your solution in a file <b>(some file name).(py| c| cpp| rb| pl| php| tcl| clj| js) | peak_traffic.java </b> or use the online editor.</p>
+
+                                
+
+							</div><!-- /.maincontent -->
+							
+            		</div><!-- /.cl-detail -->
+            		
+            	</div><!-- /.rightcol -->
+			
+			</div><!-- /.chanllenge-common -->
+            			
+			<!-- LIST CHALLENGES ENDS -->
+			
+		</div> <!-- End Content -->
+
+
+        
+         <div id="footer">
+            <ul id="siteinfo">
+                <li>&copy; Copyright 2011 CodeEval&trade; Inc.</li>    
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/terms/">Terms</a></li>
+                <li><a href="/privacy/">Privacy Policy</a></li>    
+                <li><a href="http://getsatisfaction.com/codeeval" target="_blank">Support/Feedback</a></li>
+                <li><a href="http://blog.codeeval.com/" target="_blank">Blog</a></li>
+                <li><a href="http://twitter.com/codeeval" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+        <div id="grid"></div>
+    
+        
+    </div> <!-- End Container -->
+        
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";  
+  feedback_widget_options.company = "codeeval";
+  feedback_widget_options.placement = "left";
+  feedback_widget_options.color = "#222";
+  feedback_widget_options.style = "question";
+  
+  
+  
+  
+  
+  
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+
+</body>
+</html>
+
+
+
