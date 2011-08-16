@@ -7,7 +7,7 @@ class Fixnum
     self.to_s.split('').map(&:to_i)
   end
 
-  def happy_number?
+  def happy?
     seen = Set.new
     n = self
     while true
@@ -21,5 +21,5 @@ class Fixnum
 end
 
 File.readlines(ARGV[0]).each do |line|
-  puts line.to_i.happy_number? ? 1 : 0
+  puts line.to_i.happy? ? 1 : 0
 end
