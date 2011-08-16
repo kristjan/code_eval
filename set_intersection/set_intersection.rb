@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 def interesting_intersect(a, b)
+  (a ||= []).tap(&:uniq!).sort!
+  (b ||= []).tap(&:uniq!).sort!
   intersection = []
   i = j = 0
   while i < a.size && j < b.size
@@ -18,10 +20,29 @@ def interesting_intersect(a, b)
 end
 
 def simple_intersect(a, b)
-  a & b
+  ((a || []) & (b || [])).sort
 end
 
-File.readlines(ARGV[0]).each do |line|
-  a, b = line.strip.split(';').map{|s| s.split(',')}
-  puts interesting_intersect(a, b).join(',')
+def randarr
+  1.upto(rand(100)).map{rand(50)}
+end
+
+if ARGV[0] == 'autotest'
+  1000.times do
+    a, b = randarr, randarr
+    si = simple_intersect(a, b)
+    ii = interesting_intersect(a, b)
+    unless si == ii
+      puts 'FAIL',
+           a.inspect, b.inspect,
+           si.inspect, ii.inspect,
+           (si - ii).inspect, (ii - si).inspect,
+           ''
+    end
+  end
+else
+  File.readlines(ARGV[0]).each do |line|
+    a, b = line.strip.split(';').map{|s| s.split(',')}
+    puts interesting_intersect(a, b).join(',')
+  end
 end
