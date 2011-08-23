@@ -12,9 +12,11 @@ def calculate(expression)
   end
 end
 
+def c(e);(i=e.shift)=~/\d/?i.to_i: c(e).send(i,c(e));end
+
 File.readlines(ARGV[0]).each do |line|
   line.strip!
   next if line.empty?
-  result = calculate(line.split(' '))
+  result = c(line.split(' '))
   puts result if result
 end
