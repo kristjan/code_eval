@@ -3,16 +3,19 @@
 require 'set'
 
 def string_list(alphabet, length)
-  strings = Set.new
-  if length == 0
-    strings << ''
-    return strings
+  @suffixes ||= {}
+  @suffixes[[alphabet, length]] ||= begin
+    strings = Set.new
+    if length == 0
+      strings << ''
+      return strings
+    end
+    alphabet.chars.each do |ch|
+      suffixes = string_list(alphabet, length - 1)
+      strings += suffixes.map{|s| ch + s}
+    end
+    strings
   end
-  alphabet.chars.each do |ch|
-    suffixes = string_list(alphabet, length - 1)
-    strings += suffixes.map{|s| ch + s}
-  end
-  strings
 end
 
 File.readlines(ARGV[0]).each do |line|
