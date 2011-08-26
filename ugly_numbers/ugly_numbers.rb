@@ -8,29 +8,32 @@ class Fixnum
   end
 end
 
-class String
-  def remove_leading_zeros!
-    sub!(/^0+/, '')
-  end
-end
-
 def expressions(digits)
-  return digits if digits.length == 1
+  return [digits] if digits.length == 1
   current, rest = digits.first, digits[1..-1]
   [].tap do |result|
     expressions(rest).each do |expression|
-      result << "#{current}#{expression}"
-      expression.remove_leading_zeros!
-      result << "#{current}+#{expression}"
-      result << "#{current}-#{expression}"
+      result << [current, '+'] + expression
+      result << [current, '-'] + expression
+      expression[0] = current + expression[0]
+      result << expression
     end
   end
 end
 
+def evaluate(expression)
+  result = expression[0].to_i
+  i = 1
+  while i < expression.size
+    result = result.send(expression[i], expression[i+1].to_i)
+    i += 2
+  end
+  result
+end
+
 def ugly_numbers(digits)
   expressions(digits.split('')).count do |expression|
-    expression.remove_leading_zeros!
-    eval(expression).ugly?
+    evaluate(expression).ugly?
   end
 end
 
