@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-class Fixnum
+class Integer
   UGLY_PRIMES = [2, 3, 5, 7]
 
   def ugly?
